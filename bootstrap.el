@@ -23,7 +23,7 @@
 
   ;; if we do not have melpa's package-build, get the tar package and install it
   (unless (require 'package-build nil t)
-    (let* ((archive "https://melpa.org/packages/")
+    (let* ((archive "http://melpa.org/packages/")
            (archive-contents (with-temp-buffer
                                (url-insert-file-contents (concat archive "archive-contents"))
                                (cdr (read (current-buffer)))))
@@ -43,7 +43,7 @@
     (let ((file (or (when quelpa-ci-dir (concat quelpa-ci-dir "/quelpa.el"))
                     (expand-file-name "quelpa.el" temp-dir))))
       (unless quelpa-ci-dir
-        (url-copy-file "https://raw.github.com/quelpa/quelpa/master/quelpa.el" file t))
+        (url-copy-file "http://raw.github.com/quelpa/quelpa/master/quelpa.el" file t))
       (package-install-file file)))
 
   (delete-directory temp-dir t))
